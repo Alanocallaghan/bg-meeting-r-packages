@@ -2,7 +2,8 @@
 title: "Software development and publishing in R: how and why"
 subtitle: Slides available at https://tinyurl.com/bg-r-software
 output:
-  xaringan::moon_reader
+  xaringan::moon_reader:
+    self_contained: true
 ---
 
 # What is software?
