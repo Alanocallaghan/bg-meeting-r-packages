@@ -3,7 +3,6 @@
   <head>
     <title>Software development and publishing in R: how and why</title>
     <meta charset="utf-8" />
-    <script src="bg-meeting-r-packages_files/header-attrs-2.11/header-attrs.js"></script>
     <link href="bg-meeting-r-packages_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="bg-meeting-r-packages_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -59,13 +58,13 @@ or
 
 # Why should you publish software in R?
 
-- You've written useful code
+- You've written useful code.
 
-- People want to use your code
+- People want to use your code.
 
-- You think your code could make other people's lives easier
+- You think your code could make other people's lives easier.
 
-- You want to make your method work well with other methods
+- You want to make your tool or method work well with other methods.
 
 ---
 
@@ -106,16 +105,24 @@ Can be created with [`roxygen`](https://roxygen2.r-lib.org/).
 
 ```r
 #' A function to add numbers
-#' @param x
-#' @param y
+#' @param x A number.
+#' @param y A number to add to x.
 #' @importFrom stats setNames
+#' @return A number that is the sum of a and b.
 #' @export
 add &lt;- function(a, b) a + b
 ```
 
+---
+
+# .Rd files add documentation to functions
+
 This results in a help page `help("add")`:
 
 &lt;img src="r-docs.png" width="400px" /&gt;
+
+You can also add documentation about your entire package, about classes,
+and about data objects.
 
 ---
 
@@ -146,19 +153,18 @@ Using native code expands this a bit to add a `src` directory.
 
 You can also include `src/Makevars` to change compiler behaviour.
 
-There are a lot of header-only libraries that you can link to.
+There are a lot of header-only libraries that you can link to
+(eg, linear algebra, ANNOY).
 
 This can be made with `Rcpp::Rcpp.package.skeleton`.
 There are other similar tools like `rstantools::rstan_create_package`.
 
-
 ---
-
 
 # How should you develop software for R?
 
 Version Control System:
-  - git
+  - **git**
 
   - SVN
 
@@ -176,6 +182,15 @@ Uses:
 - blame             /s
 
 ---
+
+# What is git?
+
+[git is a filesystem](https://git-scm.com/book/en/v2/Git-Inernals-Git-Objects).
+
+You can add names and messages to each version of the filesystem.
+
+&lt;img src="git-versioning.png" width="300px" /&gt;
+
 
 # Where should you develop software for R?
 
@@ -196,27 +211,38 @@ These provide a number of benefits:
 # Version control platforms
 
 - [github.com](https://www.github.com):
+
   - Open platform.
-  - May or may not cost money depending on what you need.
+
+  - Freemium, with academic offerings.
+
   - Widely used (means usually somebody's solved your problem).
+
   - Public and highly visible.
-  - Can use [git lfs](https://git-lfs.github.com/) at a truly outrageous cost.
 
+  - Can use [git lfs](https://git-lfs.github.com/) at a truly outrageous cost
+    (this isn't necessarily a good idea regardless).
 
-- gitlab
-  - May or may not last forever, depending on how IT feels in future.
-  - Can use [git lfs](https://git-lfs.github.com/) to store large files
-    (this isn't necessarily a good idea).
-  - Public and private repositories.
-  - May be hard to configure some elements.
+---
+
+# Version control platforms
+
+- gitlab:
   - Edinburgh provides a gitlab instance at [git.ecdf.ed.ac.uk](https://git.ecdf.ed.ac.uk):
-      * Closed platform (UoE only?).
+      - May or may not last forever, depending on how IT feels in future.
+      - Closed platform: externals need a UUN.
+      - Repos can't be public.
+      - Continuous integration is difficult at best.
   - [gitlab.com](https://gitlab.com):
-      * May or may not cost money depending on what you need.
-      * Open platform.
+      - Freemium.
+      - Has [git lfs](https://git-lfs.github.com/).
+      - Open platform.
+      - Public and private repositories.
 
 - [bitbucket.org](https://bitbucket.org/)
   - Also exists
+
+It's usually very easy to transfer repositories from one platform to another.
 
 ---
 
@@ -233,6 +259,7 @@ run tests, build containers, archives, etc, on:
 - Windows (allegedly)
 - Linux flavours
 
+Can be arbitrary R or shell code, or some pre-made actions like `R CMD check`.
 
 ---
 
@@ -308,13 +335,23 @@ Bioconductor:
 
 - Submit issue on [Bioconductor/Contributions/issues/](https://github.com/Bioconductor/Contributions/issues/)
 
+--
+
 - Repository is added to Bioconductor git.
+
+--
 
 - Package is checked on Bioconductor Single Package Builder.
 
+--
+
 - Bioc staff review your package (documentation, coding practices, unit tests).
 
+--
+
 - Changes after review.
+
+--
 
 - If accepted, enters the Bioconductor Build System (BBS).
 
@@ -341,11 +378,15 @@ Semantic versioning for software usually goes:
 
 `major.minor.patch`
 
+--
+
 In Bioconductor, they use a different system.
 
 `major.even.patch` is the `release` branch (eg, the the `3.15`)
 
 `major.odd.patch` is the `devel` branch.
+
+--
 
 With a new Bioc release (current is Bioc 3.14), `devel` becomes the new
 `release`.
@@ -388,6 +429,24 @@ I can add new features and bug fixes to `exemplar` 1.1.0 as versions 1.1.1,
 
 ---
 
+# Summary
+
+Publishing software in R, whether privately or publicly, is good research
+practice.
+
+git and associated platforms can help rather than make things difficult.
+
+Publishing to CRAN may be a huge pain.
+
+Bioconductor is a quality, stable platform, with great support.
+
+
+
+Thanks to Nathan Constantine-Cooke for some extra info on UoE gitlab.
+
+---
+
+
 # Other thoughts
 
 - The IGMM social committee is looking for new volunteers!  
@@ -397,7 +456,6 @@ I can add new features and bug fixes to `exemplar` 1.1.0 as versions 1.1.1,
 - The Computational Biology journal club has also lapsed.  
   This was a great way to share ideas, knowledge and interesting papers, helped
   by great pizza donations from some kind research groups.
-
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
