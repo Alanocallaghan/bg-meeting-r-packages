@@ -41,7 +41,7 @@ or
 
 ---
 
-# Why should you develop software rather than analysis scripts?
+# Why software, not just scripts?
 
 - Portability
 
@@ -66,6 +66,8 @@ or
 
 - You want to make your tool or method work well with other methods.
 
+"Publishing" can be for a public or private audience.
+
 ---
 
 # What does it mean to publish software?
@@ -78,7 +80,7 @@ or
 
 or
 
-- Keeping some reusable code on a website for your colleagues and other.
+- Keeping some reusable code on a website for your colleagues and others.
 
 or
 
@@ -91,7 +93,7 @@ or
 
 The basic structure of an R package is:
 
-&lt;img src="r-pkg-structure.png" width="395" /&gt;
+&lt;img src="r-pkg-structure.png" width="200px" /&gt;
 
 This can be made with `package.skeleton` or `devtools::create`.
 
@@ -145,6 +147,41 @@ importFrom(stats,setNames)
 
 ---
 
+# Unit tests
+
+These check that the functions in your package behave as expected.
+
+It's great to test "weird" cases and to add a test any time you find a bug
+(to make sure you fixed it, and it never pops up again).
+
+An example for our amazing R package using
+[`testthat`](https://testthat.r-lib.org/):
+
+```r
+test_that("add works", {
+  expect_equal(add(1, 1), 2)
+})
+```
+
+---
+
+# Unit tests in R
+
+Tests are stored in the `tests` directory:
+
+&lt;img src="testthat-tree.png" width="300px" /&gt;
+
+--
+
+Running `devtools::test` on this produces a nice summary:
+
+&lt;img src="testing.png" width="300px" /&gt;
+
+These tests are also run as part of package checks like `R CMD check`.
+
+---
+
+
 # Using native code
 
 Using native code expands this a bit to add a `src` directory.
@@ -160,6 +197,18 @@ This can be made with `Rcpp::Rcpp.package.skeleton`.
 There are other similar tools like `rstantools::rstan_create_package`.
 
 ---
+
+
+# Resources for learning R software development
+
+Learning how to write an R package isn't totally straightforward.
+Some resources:
+
+&lt;img src="r-pkgs.png" width="250px" /&gt;
+&lt;img src="adv-r.png" width="200px" /&gt;
+
+---
+
 
 # How should you develop software for R?
 
@@ -189,8 +238,16 @@ Uses:
 
 You can add names and messages to each version of the filesystem.
 
-&lt;img src="git-versioning.png" width="300px" /&gt;
+&lt;img src="git-versioning.png" width="400px" /&gt;
 
+--
+
+You can also have parallel versions using branches:
+
+&lt;img src="git-branching.png" width="600px" /&gt;
+
+
+---
 
 # Where should you develop software for R?
 
@@ -229,7 +286,6 @@ These provide a number of benefits:
 
 - gitlab:
   - Edinburgh provides a gitlab instance at [git.ecdf.ed.ac.uk](https://git.ecdf.ed.ac.uk):
-      - May or may not last forever, depending on how IT feels in future.
       - Closed platform: externals need a UUN.
       - Repos can't be public.
       - Continuous integration is difficult at best.
@@ -259,17 +315,8 @@ run tests, build containers, archives, etc, on:
 - Windows (allegedly)
 - Linux flavours
 
-Can be arbitrary R or shell code, or some pre-made actions like `R CMD check`.
-
----
-
-# Resources for learning R software development
-
-Learning how to write an R package isn't totally straightforward.
-Some resources:
-
-&lt;img src="r-pkgs.png" width="250px" /&gt;
-&lt;img src="adv-r.png" width="200px" /&gt;
+Can be arbitrary code (R, shell, etc),
+or some pre-made actions like `R CMD check`.
 
 ---
 
