@@ -441,9 +441,11 @@ Semantic versioning for software usually goes:
 
 In Bioconductor, they use a different system.
 
-`major.even.patch` is the `release` branch (eg, the the `3.15`)
+`major.even.patch` is the `release` branch
+(eg, the current release is Bioconductor `3.14`)
 
 `major.odd.patch` is the `devel` branch.
+(eg, the current `devel` and next release is Bioconductor `3.15`)
 
 --
 
@@ -465,7 +467,7 @@ now the `release` version. `exemplar` 0.99.0 becomes `exemplar` 1.0.0 in release
 The new `devel` version of Bioc, 3.16, includes the `devel` version of
 `exemplar`, 1.1.0.
 
-If I find a bug in `exemplar` 1.0.0, I can push a fix as 1.0.0; however
+If I find a bug in `exemplar` 1.0.0, I can push a fix as 1.0.1; however
 new features and other major changes are forbidden.
 
 I can add new features and bug fixes to `exemplar` 1.1.0 as versions 1.1.1,
