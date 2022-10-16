@@ -1,2 +1,8 @@
-all:
-	Rscript --vanilla -e 'rmarkdown::render("bg-meeting-r-packages.Rmd")'
+RMD=$(wildcard *.Rmd)
+HTML:=$(RMD:%.Rmd=%.html)
+
+all: $(HTML)
+
+
+%.html: %.Rmd
+	Rscript --vanilla -e 'rmarkdown::render("$<")'
