@@ -80,7 +80,7 @@ or
 
 - You think your code could make other people's lives easier.
 
-- You want to make your tool or method work well with other methods.
+- You want to make your code work well with other people's code.
 
 <!-- "Publishing" can be for a public or private audience. -->
 
