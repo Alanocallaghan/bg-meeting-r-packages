@@ -159,6 +159,20 @@ and about data objects.
 
 ---
 
+# Vignettes
+
+Packages can also contain long-form documentation in the form of vignettes.
+
+These are typically used to show an overall workflow in the form of a PDF or
+HTML document.
+
+```{r, out.width = "200px", echo = FALSE}
+knitr::include_graphics("tree-vignette.png")
+```
+
+
+---
+
 # Unit tests
 
 These check that the functions in your package behave as expected.
@@ -207,11 +221,9 @@ These provide a number of benefits:
 ---
 
 
-# Where can you publish software in R?
+# Publishing on CRAN:
 
-CRAN:
-
-- Publishes R packages.
+- General purpose R packages.
 
 - Very public & popular.
 
@@ -242,9 +254,7 @@ knitr::include_graphics("cranlol.png")
 ---
 
 
-# Where can you publish software in R?
-
-Bioconductor:
+# Publishing on Bioconductor
 
 - Publishes R packages for biosciences
 
@@ -256,7 +266,11 @@ Bioconductor:
 
   - Everything works within a version (except CRAN)
 
-  - If your package is broken at release time, it'll be removed
+  - `release` is stable for users
+
+  - `devel` is unstable, for advanced users and developers
+
+  - If your package is broken at release time, it's removed
 
 --
 
@@ -285,6 +299,10 @@ CRAN by:
 
 # Bioc submission process
 
+- Review [Bioconductor developers' guide](https://www.bioconductor.org/developers/)
+
+--
+
 - Submit issue on [Bioconductor/Contributions/issues/](https://github.com/Bioconductor/Contributions/issues/)
 
 --
@@ -301,11 +319,12 @@ CRAN by:
 
 --
 
-- Changes after review.
+- Suggested changes after review.
 
 --
 
 - If accepted, enters the Bioconductor Build System (BBS).
+
 
 ---
 
@@ -315,8 +334,14 @@ As part of Bioconductor there are a number of [ExperimentData](https://www.bioco
 
 These do not contain (much) code, but rather serve as a way to access data.
 
-Publishing data for easy use in R may increase citations for your paper(s).
+Publishing data for easy use in R make it easier for people to use your data,
+which may increase citations for your paper(s).
 
+One example: the [scRNAseq](https://bioconductor.org/packages/release/data/experiment/html/scRNAseq.html) package.
+
+```{r, echo = FALSE, out.width = "300px"}
+knitr::include_graphics("scRNAseq.png")
+```
 ---
 
 
@@ -326,9 +351,11 @@ Publishing data for easy use in R may increase citations for your paper(s).
 
 - [Bioconductor developers' guide](https://www.bioconductor.org/developers/)
 
-- [bioc-devel mailing list](https://stat.ethz.ch/mailman/listinfo/bioc-devel)
+- [Bioconductor package development guide](https://contributions.bioconductor.org/)
 
 - [Bioconductor new developer program](https://bioconductor.org/developers/new-developer-program/)
+
+- [bioc-devel mailing list](https://stat.ethz.ch/mailman/listinfo/bioc-devel)
 
 ---
 
@@ -340,4 +367,5 @@ Making software FAIR is an important part of open science.
 
 CRAN is a great resource but may not be enough for good open science.
 
-Bioconductor and rOpenSci quality, stable platform, with great support.
+Bioconductor and rOpenSci are high-quality, stable platforms with good
+communities.
