@@ -4,5 +4,6 @@
 #' @importFrom stats setNames
 #' @return A number that is the sum of a and b.
 #' @export
-add <- function(a, b) a + b
-
+add <- function(a, b) {
+    a + b
+}
